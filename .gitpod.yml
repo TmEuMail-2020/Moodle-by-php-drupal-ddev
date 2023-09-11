@@ -12,6 +12,7 @@ tasks:
       ddev composer create moodle/moodle -y
       ddev exec 'php public/admin/cli/install.php --non-interactive --agree-license --wwwroot=$DDEV_PRIMARY_URL --dbtype=mariadb --dbhost=db --dbname=db --dbuser=db --dbpass=db --fullname="DDEV Moodle Demo" --shortname=Demo --adminpass=password'
     command: |
+      yes| ddev start
       ddev launch /login 
 
 

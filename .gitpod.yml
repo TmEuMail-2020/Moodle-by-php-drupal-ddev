@@ -13,6 +13,8 @@ tasks:
       ddev exec 'php public/admin/cli/install.php --non-interactive --agree-license --wwwroot=$DDEV_PRIMARY_URL --dbtype=mariadb --dbhost=db --dbname=db --dbuser=db --dbpass=db --fullname="DDEV Moodle Demo" --shortname=Demo --adminpass=password'
     command: |
       yes| ddev start
+      # PREBUILD problem - url at config.php will be the old prebuild workspace url, hence must append every time we start
+      echo "\$CFG->wwwroot   = '$(gp url)';" >> public/config.php 
       ddev launch /login 
 
 

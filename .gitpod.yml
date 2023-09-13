@@ -36,6 +36,7 @@ jetbrains:
       - com.intellij.ml.llm
       - com.sourcegraph.jetbrains
       - com.github.lppedd.idea-conventional-commit
+      - de.php_perfect.intellij.ddev
       # sometimes caused workspace with jetbrains not able to start, hence comment out
       # prebuilds:
       # version: stable

@@ -30,8 +30,8 @@ github:
 # enable useful plugins
 jetbrains:
   phpstorm:
-    prebuild: 
-      version: both
+    prebuilds: 
+      version: latest
     plugins:
       - com.intellij.lang.jsgraphql
       - org.sonarlint.idea

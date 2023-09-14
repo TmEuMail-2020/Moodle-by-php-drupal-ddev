@@ -11,6 +11,9 @@ tasks:
       yes | ddev start
       ddev composer create moodle/moodle -y
       ddev exec 'php public/admin/cli/install.php --non-interactive --agree-license --wwwroot=$DDEV_PRIMARY_URL --dbtype=mariadb --dbhost=db --dbname=db --dbuser=db --dbpass=db --fullname="DDEV Moodle Demo" --shortname=Demo --adminpass=password'
+      # .gitpod.yml jetbrains prebuild index not working, hence this
+      /ide-desktop/phpstorm/backend/bin/remote-dev-server.sh warm-up .
+      
     command: |
       yes| ddev start
       # PREBUILD problem - url at config.php will be the old prebuild workspace url, hence must append every time we start

@@ -11,6 +11,14 @@ tasks:
       yes | ddev start
       ddev composer create moodle/moodle -y
       ddev exec 'php public/admin/cli/install.php --non-interactive --agree-license --wwwroot=$DDEV_PRIMARY_URL --dbtype=mariadb --dbhost=db --dbname=db --dbuser=db --dbpass=db --fullname="DDEV Moodle Demo" --shortname=Demo --adminpass=password'
+      sed -i '/\/lib\/setup\.php/d' public/config.php
+      ### setup for phpunit ###
+      # phpunit info in config.php
+      echo "\$CFG->phpunit_dataroot  = realpath(dirname(__DIR__)) . '/phpunitdata';" >> public/config.php 
+      echo "\$CFG->phpunit_prefix = 't_';" >> public/config.php
+      echo "require_once(__DIR__ . '/lib/setup.php');" >> public/config.php
+      # initiate phpunit  
+      ddev php public/admin/tool/phpunit/cli/init.php
     command: |
       yes| ddev start
       # PREBUILD problem - url at config.php will be the old prebuild workspace url, hence must append every time we start

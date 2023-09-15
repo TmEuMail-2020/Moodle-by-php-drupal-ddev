@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="access_permissions.feature" type="PhpBehatConfigurationType">
+    <BehatRunner file="$PROJECT_DIR$/public/contentbank/tests/behat/access_permissions.feature" scenario="" scope="File" />
+    <method v="2" />
+  </configuration>
+</component>

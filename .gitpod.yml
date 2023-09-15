@@ -11,14 +11,23 @@ tasks:
       yes | ddev start
       ddev composer create moodle/moodle -y
       ddev exec 'php public/admin/cli/install.php --non-interactive --agree-license --wwwroot=$DDEV_PRIMARY_URL --dbtype=mariadb --dbhost=db --dbname=db --dbuser=db --dbpass=db --fullname="DDEV Moodle Demo" --shortname=Demo --adminpass=password'
+      # remove the setup.php line from config.php
       sed -i '/\/lib\/setup\.php/d' public/config.php
       ### setup for phpunit ###
-      # phpunit info in config.php
+      ## phpunit part ##
       echo "\$CFG->phpunit_dataroot  = realpath(dirname(__DIR__)) . '/phpunitdata';" >> public/config.php 
       echo "\$CFG->phpunit_prefix = 't_';" >> public/config.php
+      ## behat part ##
+      echo "\$CFG->behat_prefix = 'bht_';" >> public/config.php
+      # MUST be localhost:80 - since behat is executed INSIDE container. 8080 port is mapped by ddev for "web" container 
+      echo "\$CFG->behat_wwwroot = 'http://localhost';" >> public/config.php
+      echo "\$CFG->behat_dataroot = '/var/www/html/bht_moodledata';" >> public/config.php
+      # put require_once back - must be at the end of file
       echo "require_once(__DIR__ . '/lib/setup.php');" >> public/config.php
       # initiate phpunit  
       ddev php public/admin/tool/phpunit/cli/init.php
+      # initiate behat  
+      ddev php public/admin/tool/behat/cli/init.php
     command: |
       yes| ddev start
       # PREBUILD problem - url at config.php will be the old prebuild workspace url, hence must append every time we start
@@ -45,6 +54,7 @@ jetbrains:
       - com.sourcegraph.jetbrains
       - com.github.lppedd.idea-conventional-commit
       - de.php_perfect.intellij.ddev
+      - zielu.gittoolbox
       # sometimes caused workspace with jetbrains not able to start, hence comment out
       # prebuilds:
       # version: stable

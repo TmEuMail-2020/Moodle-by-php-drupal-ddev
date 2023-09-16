@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PHPUnit">
+    <option name="directories">
+      <list>
+        <option value="$PROJECT_DIR$/public/lib/guzzlehttp/psr7/tests" />
+        <option value="$PROJECT_DIR$/public/lib/php-jwt/tests" />
+        <option value="$PROJECT_DIR$/public/lib/guzzlehttp/guzzle/tests" />
+        <option value="$PROJECT_DIR$/public/lib/ralouphie/getallheaders/tests" />
+        <option value="$PROJECT_DIR$/public/lib/maxmind/MaxMind/tests" />
+        <option value="$PROJECT_DIR$/public/lib/guzzlehttp/kevinrob/guzzlecache/tests" />
+      </list>
+    </option>
+  </component>
+</project>

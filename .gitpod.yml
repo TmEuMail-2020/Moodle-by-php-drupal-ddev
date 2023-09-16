@@ -10,7 +10,8 @@ tasks:
       ddev config --composer-root=public --create-docroot --docroot=public --webserver-type=apache-fpm --database=mariadb:10.7
       yes | ddev start
       # before was composer create, now use clone to always have newest source and keep git log
-      ddev composer create-project moodle/moodle --keep-vcs -y
+      # NOTE: MUST `ddev composer create`, which is a special ddev command! can not do `ddev composer create-project`
+      ddev composer create moodle/moodle --keep-vcs -y
       # remove the setup.php line from config.php
       sed -i '/\/lib\/setup\.php/d' public/config.php
       ### setup for phpunit ###

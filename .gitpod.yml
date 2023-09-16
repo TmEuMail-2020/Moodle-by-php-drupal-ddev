@@ -9,7 +9,7 @@ tasks:
       # Moodle needs database=mariadb:10.7. DDEV default to 10.4 which is not compatible
       ddev config --composer-root=public --create-docroot --docroot=public --webserver-type=apache-fpm --database=mariadb:10.7
       yes | ddev start
-      ddev exec git clone moodle/moodle
+      ddev exec git clone https://github.com/moodle/moodle
       ddev exec 'php public/admin/cli/install.php --non-interactive --agree-license --wwwroot=$DDEV_PRIMARY_URL --dbtype=mariadb --dbhost=db --dbname=db --dbuser=db --dbpass=db --fullname="DDEV Moodle Demo" --shortname=Demo --adminpass=password'
       # remove the setup.php line from config.php
       sed -i '/\/lib\/setup\.php/d' public/config.php

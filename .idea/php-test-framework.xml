@@ -6,21 +6,9 @@
         <settings>
           <configurations>
             <configuration_by_sdk interpreter_id="2db930a4-eaa6-4320-b926-de06e3c570c9" configuration_file_path="/var/www/html/bht_moodledata/behatrun/behat/behat.yml" executable_path="/var/www/html/public/vendor/behat/behat/bin/behat" use_configuration_file="true" />
-            <local_configuration configuration_file_path="$PROJECT_DIR$/public/behat.yml.dist" executable_path="$PROJECT_DIR$/public/vendor/behat/behat/bin/behat" use_configuration_file="true" />
           </configurations>
         </settings>
       </tool>
     </test_tools>
-  </component>
-  <component name="PhpTestFrameworkVersionCache">
-    <tools_cache>
-      <tool tool_name="Behat">
-        <cache>
-          <versions>
-            <info id="interpreter-2db930a4-eaa6-4320-b926-de06e3c570c9/var/www/html/public/vendor/behat/behat/bin/behat" version="3.13.0" />
-          </versions>
-        </cache>
-      </tool>
-    </tools_cache>
   </component>
 </project>

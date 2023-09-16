@@ -12,6 +12,7 @@ tasks:
       # before was composer create, now use clone to always have newest source and keep git log
       # NOTE: MUST `ddev composer create`, which is a special ddev command! can not do `ddev composer create-project`
       ddev composer create moodle/moodle --keep-vcs -y
+      ddev exec 'php public/admin/cli/install.php --non-interactive --agree-license --wwwroot=$DDEV_PRIMARY_URL --dbtype=mariadb --dbhost=db --dbname=db --dbuser=db --dbpass=db --fullname="DDEV Moodle Demo" --shortname=Demo --adminpass=password'
       # remove the setup.php line from config.php
       sed -i '/\/lib\/setup\.php/d' public/config.php
       ### setup for phpunit ###

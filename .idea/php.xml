@@ -81,6 +81,8 @@
       <path value="$PROJECT_DIR$/public/vendor/sebastian/code-unit-reverse-lookup" />
       <path value="$PROJECT_DIR$/public/vendor/php-webdriver/webdriver" />
       <path value="$PROJECT_DIR$/public/vendor/mikey179/vfsstream" />
+      <path value="$PROJECT_DIR$/public/vendor/webmozart/assert" />
+      <path value="$PROJECT_DIR$/public/vendor/bmitch/churn-php" />
     </include_path>
   </component>
   <component name="PhpInterpreters">

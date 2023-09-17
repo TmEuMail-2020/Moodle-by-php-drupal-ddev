@@ -64,7 +64,9 @@ jetbrains:
       - com.sourcegraph.jetbrains
       - com.github.lppedd.idea-conventional-commit
       - de.php_perfect.intellij.ddev
+      #  inline blame not working on jetbrains client, but status bar still okay
       - zielu.gittoolbox
+      - com.kalessil.phpStorm.phpInspectionsEA
       # sometimes caused workspace with jetbrains not able to start, hence comment out
       # prebuilds:
       # version: stable

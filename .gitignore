@@ -1,1 +1,4 @@
 /moodledata/
+/phpunitdata/
+/bht_moodledata/
+/.ddev/config.yaml

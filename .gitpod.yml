@@ -9,7 +9,9 @@ tasks:
       # Moodle needs database=mariadb:10.7. DDEV default to 10.4 which is not compatible
       ddev config --composer-root=public --create-docroot --docroot=public --webserver-type=apache-fpm --database=mariadb:10.7
       yes | ddev start
-      ddev composer create moodle/moodle -y
+      # before was composer create, now use clone to always have newest source and keep git log
+      # NOTE: MUST `ddev composer create`, which is a special ddev command! can not do `ddev composer create-project`
+      ddev composer create moodle/moodle --keep-vcs -y
       ddev exec 'php public/admin/cli/install.php --non-interactive --agree-license --wwwroot=$DDEV_PRIMARY_URL --dbtype=mariadb --dbhost=db --dbname=db --dbuser=db --dbpass=db --fullname="DDEV Moodle Demo" --shortname=Demo --adminpass=password'
       # remove the setup.php line from config.php
       sed -i '/\/lib\/setup\.php/d' public/config.php
@@ -28,6 +30,14 @@ tasks:
       ddev php public/admin/tool/phpunit/cli/init.php
       # initiate behat  
       ddev php public/admin/tool/behat/cli/init.php
+      ### for Jetbrains remote development/gateway (not sure due to gateway) ###
+      # "Preferences | PHP | Test Frameworks" can save php-test-framework.xml to .idea folder, but NOT WORKING after restart IDE backend
+      #   Current workaround: PhpStorm seems to "guess" behat config location (not sure due to DDEV), so even WITHOUT any config in Test Frameworks
+      #   it first "guess" public/behat.yml.dist (should due to ddev? since it is not project root, it is "composer root")
+      #   hence solution is to create a symlink to the real config file
+      #   NOTE: phpunit not needed since it is already at "composer root" /public
+      rm public/behat.yml.dist
+      ln -s ../bht_moodledata/behatrun/behat/behat.yml public/behat.yml.dist
     command: |
       yes| ddev start
       # PREBUILD problem - url at config.php will be the old prebuild workspace url, hence must append every time we start

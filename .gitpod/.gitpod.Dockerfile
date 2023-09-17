@@ -14,6 +14,9 @@ RUN mkdir -p ~/.projector/configs  # Prevents projector install from asking for 
 # Install ddev
 RUN brew update && brew install drud/ddev/ddev && mkcert -install
 
+# install git-extras for git effort so to do `git effort --above 5 * -- --after="two year ago`
+RUN sudo apt-get git-efforts
+
 ###
 ### Initiate a rebuild of Gitpod's image by updating this comment #1
 ###

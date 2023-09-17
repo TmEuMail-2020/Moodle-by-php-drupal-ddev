@@ -3,6 +3,12 @@
   <component name="PHPUnit">
     <option name="directories">
       <list>
+        <option value="$PROJECT_DIR$/public/lib/guzzlehttp/psr7/tests" />
+        <option value="$PROJECT_DIR$/public/lib/ralouphie/getallheaders/tests" />
+        <option value="$PROJECT_DIR$/public/lib/php-jwt/tests" />
+        <option value="$PROJECT_DIR$/public/lib/maxmind/MaxMind/tests" />
+        <option value="$PROJECT_DIR$/public/lib/guzzlehttp/kevinrob/guzzlecache/tests" />
+        <option value="$PROJECT_DIR$/public/lib/guzzlehttp/guzzle/tests" />
         <option value="$PROJECT_DIR$/public/lib/phpunit/tests" />
         <option value="$PROJECT_DIR$/public/lib/testing" />
         <option value="$PROJECT_DIR$/public/lib/ddl/tests" />
@@ -419,12 +425,6 @@
         <option value="$PROJECT_DIR$/public/mod/workshop/form/comments/tests" />
         <option value="$PROJECT_DIR$/public/mod/workshop/form/numerrors/tests" />
         <option value="$PROJECT_DIR$/public/mod/workshop/form/rubric/tests" />
-        <option value="$PROJECT_DIR$/public/lib/guzzlehttp/psr7/tests" />
-        <option value="$PROJECT_DIR$/public/lib/ralouphie/getallheaders/tests" />
-        <option value="$PROJECT_DIR$/public/lib/php-jwt/tests" />
-        <option value="$PROJECT_DIR$/public/lib/maxmind/MaxMind/tests" />
-        <option value="$PROJECT_DIR$/public/lib/guzzlehttp/kevinrob/guzzlecache/tests" />
-        <option value="$PROJECT_DIR$/public/lib/guzzlehttp/guzzle/tests" />
       </list>
     </option>
   </component>

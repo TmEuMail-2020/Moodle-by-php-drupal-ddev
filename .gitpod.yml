@@ -37,7 +37,7 @@ tasks:
       # fix generated behat.dist.yml incorrectly use localhost assumption for base_url
       sed -i "/base_url:/ { s#.*#      base_url: 'http://web:80'# }" public/behat.yml.dist# same for chrome (not chromedriver) key wd_host
       # same for chrome (not chromedriver) key wd_host
-    sed -i "/wd_host:/ { s#.*#        wd_host: 'http://selenium-chrome:4444/wd/hub'# }" public/behat.yml.dist
+      sed -i "/wd_host:/ { s#.*#        wd_host: 'http://selenium-chrome:4444/wd/hub'# }" public/behat.yml.dist
       ## behat END ##
       # put require_once back - must be at the end of file
       echo "require_once(__DIR__ . '/lib/setup.php');" >> public/config.php

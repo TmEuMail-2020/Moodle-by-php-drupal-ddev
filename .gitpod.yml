@@ -6,6 +6,8 @@ image:
 tasks:
   - name: moodle
     init: |
+      # install selenium chrome plugin https://github.com/ddev/ddev-selenium-standalone-chrome
+      ddev get ddev/ddev-selenium-standalone-chrome
       # Moodle needs database=mariadb:10.7. DDEV default to 10.4 which is not compatible
       ddev config --composer-root=public --create-docroot --docroot=public --webserver-type=apache-fpm --database=mariadb:10.7
       yes | ddev start
@@ -13,19 +15,21 @@ tasks:
       # NOTE: MUST `ddev composer create`, which is a special ddev command! can not do `ddev composer create-project`
       ddev composer create moodle/moodle --keep-vcs -y
       ddev exec 'php public/admin/cli/install.php --non-interactive --agree-license --wwwroot=$DDEV_PRIMARY_URL --dbtype=mariadb --dbhost=db --dbname=db --dbuser=db --dbpass=db --fullname="DDEV Moodle Demo" --shortname=Demo --adminpass=password'
+      ## update config.php ##
       # remove the setup.php line from config.php
-      sed -i '/\/lib\/setup\.php/d' public/config.php
+      sed -i '/\/lib\/setup.php/d' public/config.php
       ### setup for phpunit ###
       ## phpunit part ##
       echo "\$CFG->phpunit_dataroot  = realpath(dirname(__DIR__)) . '/phpunitdata';" >> public/config.php 
       echo "\$CFG->phpunit_prefix = 't_';" >> public/config.php
       ## behat part ##
-      # install selenium chrome plugin https://github.com/ddev/ddev-selenium-standalone-chrome
-      ddev get ddev/ddev-selenium-standalone-chrome
       echo "\$CFG->behat_prefix = 'bht_';" >> public/config.php
       # MUST be web:80 - since behat.yml.dist is READ & EXECUTED by selenium-chrome, so wwwroot is in the point of view from SELENIUM, not web container NOR host machine itself! 
       echo "\$CFG->behat_wwwroot = 'http://web';" >> public/config.php
       echo "\$CFG->behat_dataroot = '/var/www/html/bht_moodledata';" >> public/config.php
+      # put require_once back - must be at the end of file
+      echo "require_once(__DIR__ . '/lib/setup.php');" >> public/config.php
+      ## update config.php END ##
       # initiate behat  
       ddev php public/admin/tool/behat/cli/init.php
       # for Jetbrains remote development/gateway (not sure due to gateway) ###
@@ -41,8 +45,6 @@ tasks:
       # same for all wd_host keys - ex: chrome (not chromedriver) key wd_host
       sed -i "/wd_host:/ { s#.*#        wd_host: 'http://selenium-chrome:4444/wd/hub'# }" public/behat.yml.dist
       ## behat END ##
-      # put require_once back - must be at the end of file
-      echo "require_once(__DIR__ . '/lib/setup.php');" >> public/config.php
       # initiate phpunit  
       ddev php public/admin/tool/phpunit/cli/init.php
     command: |

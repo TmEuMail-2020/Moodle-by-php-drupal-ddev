@@ -21,16 +21,12 @@ tasks:
       echo "\$CFG->phpunit_prefix = 't_';" >> public/config.php
       ## behat part ##
       echo "\$CFG->behat_prefix = 'bht_';" >> public/config.php
-      # MUST be localhost:80 - since behat is executed INSIDE container. 8080 port is mapped by ddev for "web" container 
-      echo "\$CFG->behat_wwwroot = 'http://localhost';" >> public/config.php
+      # MUST be web:80 - since behat.yml.dist is READ & EXECUTED by selenium-chrome, so wwwroot is in the point of view from SELENIUM, not web container NOR host machine itself! 
+      echo "\$CFG->behat_wwwroot = 'http://web';" >> public/config.php
       echo "\$CFG->behat_dataroot = '/var/www/html/bht_moodledata';" >> public/config.php
-      # put require_once back - must be at the end of file
-      echo "require_once(__DIR__ . '/lib/setup.php');" >> public/config.php
-      # initiate phpunit  
-      ddev php public/admin/tool/phpunit/cli/init.php
       # initiate behat  
       ddev php public/admin/tool/behat/cli/init.php
-      ### for Jetbrains remote development/gateway (not sure due to gateway) ###
+      # for Jetbrains remote development/gateway (not sure due to gateway) ###
       # "Preferences | PHP | Test Frameworks" can save php-test-framework.xml to .idea folder, but NOT WORKING after restart IDE backend
       #   Current workaround: PhpStorm seems to "guess" behat config location (not sure due to DDEV), so even WITHOUT any config in Test Frameworks
       #   it first "guess" public/behat.yml.dist (should due to ddev? since it is not project root, it is "composer root")
@@ -38,6 +34,15 @@ tasks:
       #   NOTE: phpunit not needed since it is already at "composer root" /public
       rm public/behat.yml.dist
       ln -s ../bht_moodledata/behatrun/behat/behat.yml public/behat.yml.dist
+      # fix generated behat.dist.yml incorrectly use localhost assumption for base_url
+      sed -i "/base_url:/ { s#.*#     base_url: 'http://web:80'# }" public/behat.yml.dist
+      # same for chrome (not chromedriver) key wd_host
+      sed -i "/wd_host:/ { s#.*#        wd_host: 'http://selenium-chrome:4444/wd/hub'# }" public/behat.yml.dist
+      ## behat END ##
+      # put require_once back - must be at the end of file
+      echo "require_once(__DIR__ . '/lib/setup.php');" >> public/config.php
+      # initiate phpunit  
+      ddev php public/admin/tool/phpunit/cli/init.php
     command: |
       yes| ddev start
       # PREBUILD problem - url at config.php will be the old prebuild workspace url, hence must append every time we start

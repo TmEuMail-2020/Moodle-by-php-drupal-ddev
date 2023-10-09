@@ -20,6 +20,8 @@ tasks:
       echo "\$CFG->phpunit_dataroot  = realpath(dirname(__DIR__)) . '/phpunitdata';" >> public/config.php 
       echo "\$CFG->phpunit_prefix = 't_';" >> public/config.php
       ## behat part ##
+      # install selenium chrome plugin https://github.com/ddev/ddev-selenium-standalone-chrome
+      ddev get ddev/ddev-selenium-standalone-chrome
       echo "\$CFG->behat_prefix = 'bht_';" >> public/config.php
       # MUST be web:80 - since behat.yml.dist is READ & EXECUTED by selenium-chrome, so wwwroot is in the point of view from SELENIUM, not web container NOR host machine itself! 
       echo "\$CFG->behat_wwwroot = 'http://web';" >> public/config.php

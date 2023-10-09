@@ -27,6 +27,10 @@ tasks:
       # MUST be web:80 - since behat.yml.dist is READ & EXECUTED by selenium-chrome, so wwwroot is in the point of view from SELENIUM, not web container NOR host machine itself! 
       echo "\$CFG->behat_wwwroot = 'http://web';" >> public/config.php
       echo "\$CFG->behat_dataroot = '/var/www/html/bht_moodledata';" >> public/config.php
+      # enable chrome profile since default was firefox only https://moodledev.io/general/development/tools/behat/running#installation
+      # notice path name is all in container perspective hence "/var/www/html", not host machine
+      git clone https://github.com/andrewnicols/moodle-browser-config
+      echo "require_once('/var/www/html/moodle-browser-config/init.php');" >> public/config.php
       # put require_once back - must be at the end of file
       echo "require_once(__DIR__ . '/lib/setup.php');" >> public/config.php
       ## update config.php END ##

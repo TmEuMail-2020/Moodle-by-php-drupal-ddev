@@ -59,9 +59,12 @@ tasks:
       # PREBUILD problem - url at config.php will be the old prebuild workspace url, hence must append every time we start
       # MUST happen before require_once, hence can not simply append. Here use sed to find and replace
       sed -i "/\$CFG->wwwroot/ { s#.*#\$CFG->wwwroot   = '$(gp url 8080)';# }" public/config.php 
+      # give basic info: ONLY works for vscode or jetbrains IDE - NOT "browser terminal" 
+      #   hence if use "browser terminal", must manually use "gp tasks list" to see this message... 
+      #   https://www.gitpod.io/docs/references/ides-and-editors/browser-terminal#managing-workspace-tasks
+      echo "vnc exposed at port $(gp url 5900), password: secret"
+      echo "example behat command to run - MUST be inside container: ddev ssh;cd public;vendor/bin/behat -v --profile chrome --config behat.yml.dist  ./user/tests/behat/filter_idnumber.feature" 
       ddev launch /login 
-
-
 
 github:
   prebuilds:

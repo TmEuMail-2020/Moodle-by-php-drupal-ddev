@@ -11,6 +11,9 @@ tasks:
       yes | ddev start
       # (must after ddev config) install selenium chrome plugin https://github.com/ddev/ddev-selenium-standalone-chrome
       ddev get ddev/ddev-selenium-standalone-chrome
+      # enable vnc at port 5900, password: `secret`. https://github.com/ddev/ddev-selenium-standalone-chrome
+      sed -i "/#ports/ { s#.*#    ports:# }" .ddev/docker-compose.selenium-chrome.yaml
+      sed -i "/5900:5900/ { s#.*#      - 5900:5900# }" .ddev/docker-compose.selenium-chrome.yaml
       # before was composer create, now use clone to always have newest source and keep git log
       # NOTE: MUST `ddev composer create`, which is a special ddev command! can not do `ddev composer create-project`
       ddev composer create moodle/moodle --keep-vcs -y

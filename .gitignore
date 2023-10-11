@@ -8,3 +8,4 @@
 /.ddev/config.selenium-standalone-chrome.yaml
 /.ddev/docker-compose.selenium-chrome.yaml
 /.ddev/addon-metadata/ddev-selenium-standalone-chrome/manifest.yaml
+/public/behat.yml.dist

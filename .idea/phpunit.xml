@@ -3,12 +3,6 @@
   <component name="PHPUnit">
     <option name="directories">
       <list>
-        <option value="$PROJECT_DIR$/public/lib/guzzlehttp/psr7/tests" />
-        <option value="$PROJECT_DIR$/public/lib/ralouphie/getallheaders/tests" />
-        <option value="$PROJECT_DIR$/public/lib/php-jwt/tests" />
-        <option value="$PROJECT_DIR$/public/lib/maxmind/MaxMind/tests" />
-        <option value="$PROJECT_DIR$/public/lib/guzzlehttp/kevinrob/guzzlecache/tests" />
-        <option value="$PROJECT_DIR$/public/lib/guzzlehttp/guzzle/tests" />
         <option value="$PROJECT_DIR$/public/lib/phpunit/tests" />
         <option value="$PROJECT_DIR$/public/lib/testing" />
         <option value="$PROJECT_DIR$/public/lib/ddl/tests" />
@@ -78,6 +72,7 @@
         <option value="$PROJECT_DIR$/public/reportbuilder/tests" />
         <option value="$PROJECT_DIR$/public/admin/presets/tests" />
         <option value="$PROJECT_DIR$/public/admin/tests" />
+        <option value="$PROJECT_DIR$/public/communication/tests" />
         <option value="$PROJECT_DIR$/public/lib/antivirus/clamav/tests" />
         <option value="$PROJECT_DIR$/public/mod/assign/feedback/comments/tests" />
         <option value="$PROJECT_DIR$/public/mod/assign/feedback/editpdf/tests" />
@@ -168,6 +163,8 @@
         <option value="$PROJECT_DIR$/public/cache/stores/redis/tests" />
         <option value="$PROJECT_DIR$/public/cache/stores/session/tests" />
         <option value="$PROJECT_DIR$/public/cache/stores/static/tests" />
+        <option value="$PROJECT_DIR$/public/communication/provider/customlink/tests" />
+        <option value="$PROJECT_DIR$/public/communication/provider/matrix/tests" />
         <option value="$PROJECT_DIR$/public/contentbank/contenttype/h5p/tests" />
         <option value="$PROJECT_DIR$/public/customfield/field/checkbox/tests" />
         <option value="$PROJECT_DIR$/public/customfield/field/date/tests" />
@@ -197,10 +194,17 @@
         <option value="$PROJECT_DIR$/public/enrol/meta/tests" />
         <option value="$PROJECT_DIR$/public/enrol/paypal/tests" />
         <option value="$PROJECT_DIR$/public/enrol/self/tests" />
+        <option value="$PROJECT_DIR$/public/admin/tool/mfa/factor/cohort/tests" />
+        <option value="$PROJECT_DIR$/public/admin/tool/mfa/factor/email/tests" />
+        <option value="$PROJECT_DIR$/public/admin/tool/mfa/factor/grace/tests" />
+        <option value="$PROJECT_DIR$/public/admin/tool/mfa/factor/role/tests" />
+        <option value="$PROJECT_DIR$/public/admin/tool/mfa/factor/token/tests" />
+        <option value="$PROJECT_DIR$/public/admin/tool/mfa/factor/totp/tests" />
         <option value="$PROJECT_DIR$/public/files/converter/googledrive/tests" />
         <option value="$PROJECT_DIR$/public/files/converter/unoconv/tests" />
         <option value="$PROJECT_DIR$/public/filter/activitynames/tests" />
         <option value="$PROJECT_DIR$/public/filter/algebra/tests" />
+        <option value="$PROJECT_DIR$/public/filter/codehighlighter/tests" />
         <option value="$PROJECT_DIR$/public/filter/data/tests" />
         <option value="$PROJECT_DIR$/public/filter/displayh5p/tests" />
         <option value="$PROJECT_DIR$/public/filter/emoticon/tests" />
@@ -381,8 +385,10 @@
         <option value="$PROJECT_DIR$/public/lib/editor/tiny/plugins/autosave/tests" />
         <option value="$PROJECT_DIR$/public/lib/editor/tiny/plugins/equation/tests" />
         <option value="$PROJECT_DIR$/public/lib/editor/tiny/plugins/h5p/tests" />
+        <option value="$PROJECT_DIR$/public/lib/editor/tiny/plugins/html/tests" />
         <option value="$PROJECT_DIR$/public/lib/editor/tiny/plugins/link/tests" />
         <option value="$PROJECT_DIR$/public/lib/editor/tiny/plugins/media/tests" />
+        <option value="$PROJECT_DIR$/public/lib/editor/tiny/plugins/noautolink/tests" />
         <option value="$PROJECT_DIR$/public/admin/tool/admin_presets/tests" />
         <option value="$PROJECT_DIR$/public/admin/tool/analytics/tests" />
         <option value="$PROJECT_DIR$/public/admin/tool/availabilityconditions/tests" />
@@ -403,6 +409,7 @@
         <option value="$PROJECT_DIR$/public/admin/tool/lpimportcsv/tests" />
         <option value="$PROJECT_DIR$/public/admin/tool/lpmigrate/tests" />
         <option value="$PROJECT_DIR$/public/admin/tool/messageinbound/tests" />
+        <option value="$PROJECT_DIR$/public/admin/tool/mfa/tests" />
         <option value="$PROJECT_DIR$/public/admin/tool/mobile/tests" />
         <option value="$PROJECT_DIR$/public/admin/tool/monitor/tests" />
         <option value="$PROJECT_DIR$/public/admin/tool/moodlenet/tests" />
@@ -425,6 +432,14 @@
         <option value="$PROJECT_DIR$/public/mod/workshop/form/comments/tests" />
         <option value="$PROJECT_DIR$/public/mod/workshop/form/numerrors/tests" />
         <option value="$PROJECT_DIR$/public/mod/workshop/form/rubric/tests" />
+        <option value="$PROJECT_DIR$/public/lib/guzzlehttp/psr7/tests" />
+        <option value="$PROJECT_DIR$/public/lib/ralouphie/getallheaders/tests" />
+        <option value="$PROJECT_DIR$/public/lib/php-jwt/tests" />
+        <option value="$PROJECT_DIR$/public/lib/maxmind/MaxMind/tests" />
+        <option value="$PROJECT_DIR$/public/lib/guzzlehttp/kevinrob/guzzlecache/tests" />
+        <option value="$PROJECT_DIR$/public/lib/guzzlehttp/guzzle/tests" />
+        <option value="$PROJECT_DIR$/public/admin/tool/mfa/factor/totp/extlib/OTPHP/tests" />
+        <option value="$PROJECT_DIR$/public/admin/tool/mfa/factor/totp/extlib/ParagonIE/ConstantTime/tests" />
       </list>
     </option>
   </component>

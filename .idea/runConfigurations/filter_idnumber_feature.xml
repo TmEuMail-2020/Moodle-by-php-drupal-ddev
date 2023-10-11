@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="filter_idnumber.feature" type="PhpBehatConfigurationType">
+    <BehatRunner file="$PROJECT_DIR$/public/user/tests/behat/filter_idnumber.feature" scenario="" scope="File" options="--profile chrome" />
+    <method v="2" />
+  </configuration>
+</component>

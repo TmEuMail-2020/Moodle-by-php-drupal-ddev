@@ -8,6 +8,7 @@
   </component>
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/moodle-browser-config" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/public" vcs="Git" />
   </component>
 </project>

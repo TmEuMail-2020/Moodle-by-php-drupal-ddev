@@ -28,7 +28,7 @@ tasks:
       echo "\$CFG->phpunit_prefix = 't_';" >> public/config.php
       ## behat part ##
       echo "\$CFG->behat_prefix = 'bht_';" >> public/config.php
-      # MUST be web:80 - since behat.yml.dist is READ & EXECUTED by selenium-chrome, so wwwroot is in the point of view from SELENIUM, not web container NOR host machine itself! 
+      # MUST be web:80 - since behat.yml is READ & EXECUTED by selenium-chrome, so wwwroot is in the point of view from SELENIUM, not web container NOR host machine itself! 
       echo "\$CFG->behat_wwwroot = 'http://web';" >> public/config.php
       echo "\$CFG->behat_dataroot = '/var/www/html/bht_moodledata';" >> public/config.php
       # enable chrome profile since default was firefox only https://moodledev.io/general/development/tools/behat/running#installation
@@ -43,15 +43,14 @@ tasks:
       # for Jetbrains remote development/gateway (not sure due to gateway) ###
       # "Preferences | PHP | Test Frameworks" can save php-test-framework.xml to .idea folder, but NOT WORKING after restart IDE backend
       #   Current workaround: PhpStorm seems to "guess" behat config location (not sure due to DDEV), so even WITHOUT any config in Test Frameworks
-      #   it first "guess" public/behat.yml.dist (should due to ddev? since it is not project root, it is "composer root")
+      #   it first "guess" public/behat.yml(.dist) (should due to ddev? since it is not project root, it is "composer root")
       #   hence solution is to create a symlink to the real config file
       #   NOTE: phpunit not needed since it is already at "composer root" /public
-      rm public/behat.yml.dist
-      ln -s ../bht_moodledata/behatrun/behat/behat.yml public/behat.yml.dist
+      ln -s ../bht_moodledata/behatrun/behat/behat.yml public/behat.yml
       # fix generated behat.dist.yml incorrectly use localhost assumption for base_url
-      sed -i "/base_url:/ { s#.*#      base_url: 'http://web:80'# }" public/behat.yml.dist
+      sed -i "/base_url:/ { s#.*#      base_url: 'http://web:80'# }" public/behat.yml
       # same for all wd_host keys - ex: chrome (not chromedriver) key wd_host
-      sed -i "/wd_host:/ { s#.*#        wd_host: 'http://selenium-chrome:4444/wd/hub'# }" public/behat.yml.dist
+      sed -i "/wd_host:/ { s#.*#        wd_host: 'http://selenium-chrome:4444/wd/hub'# }" public/behat.yml
       ## behat END ##
       # initiate phpunit  
       ddev php public/admin/tool/phpunit/cli/init.php
@@ -64,7 +63,7 @@ tasks:
       #   hence if use "browser terminal", must manually use "gp tasks list" to see this message... 
       #   https://www.gitpod.io/docs/references/ides-and-editors/browser-terminal#managing-workspace-tasks
       echo "vnc exposed at port $(gp url 5900), password: secret"
-      echo "example behat command to run - MUST be inside container: ddev ssh;cd public;vendor/bin/behat -v --profile chrome --config behat.yml.dist  ./user/tests/behat/filter_idnumber.feature" 
+      echo "example behat command to run - MUST be inside container: ddev ssh;cd public;vendor/bin/behat -v --profile chrome --config behat.yml  ./user/tests/behat/filter_idnumber.feature" 
       ddev launch /login 
 
 github:

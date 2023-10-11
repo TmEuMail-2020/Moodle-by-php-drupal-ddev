@@ -1,0 +1,6 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="true" type="PhpBehatConfigurationType">
+    <BehatRunner scenario="" options="--profile chrome" />
+    <method v="2" />
+  </configuration>
+</component>

@@ -86,7 +86,8 @@ jetbrains:
       #  inline blame not working on jetbrains client, but status bar still okay
       - zielu.gittoolbox
       - com.kalessil.phpStorm.phpInspectionsEA
-      - IdeaVIM
-      # sometimes caused workspace with jetbrains not able to start, hence comment out
+      # NEVER need to turn on, doc purpose - vim is at jetbrains client! not backend! 
+      #- IdeaVIM
+    # seems working (12-Oct-2023T22-19+0200), no errors anymore, but still not sure
     prebuilds:
-       version: latest
+      version: both

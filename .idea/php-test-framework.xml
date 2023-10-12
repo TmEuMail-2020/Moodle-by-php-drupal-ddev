@@ -5,8 +5,8 @@
       <tool tool_name="Behat">
         <settings>
           <configurations>
-            <local_configuration configuration_file_path="$PROJECT_DIR$/public/behat.yml.dist" executable_path="$PROJECT_DIR$/public/vendor/behat/behat/bin/behat" use_configuration_file="true" />
             <configuration_by_sdk interpreter_id="c9e38c01-9a78-49e1-a915-4488b2bcd9bb" configuration_file_path="/var/www/html/public/behat.yml" executable_path="/var/www/html/public/vendor/behat/behat/bin/behat" use_configuration_file="true" />
+            <local_configuration configuration_file_path="$PROJECT_DIR$/public/behat.yml.dist" executable_path="$PROJECT_DIR$/public/vendor/behat/behat/bin/behat" use_configuration_file="true" />
           </configurations>
         </settings>
       </tool>
@@ -14,13 +14,6 @@
   </component>
   <component name="PhpTestFrameworkVersionCache">
     <tools_cache>
-      <tool tool_name="Behat">
-        <cache>
-          <versions>
-            <info id="interpreter-c9e38c01-9a78-49e1-a915-4488b2bcd9bb/var/www/html/public/vendor/behat/behat/bin/behat" version="3.13.0" />
-          </versions>
-        </cache>
-      </tool>
       <tool tool_name="PHPUnit">
         <cache>
           <versions>

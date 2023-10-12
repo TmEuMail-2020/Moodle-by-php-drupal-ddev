@@ -88,5 +88,5 @@ jetbrains:
       - com.kalessil.phpStorm.phpInspectionsEA
       - IdeaVIM
       # sometimes caused workspace with jetbrains not able to start, hence comment out
-      # prebuilds:
-      # version: stable
+    prebuilds:
+       version: latest

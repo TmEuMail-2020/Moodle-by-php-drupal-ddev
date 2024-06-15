@@ -54,6 +54,8 @@ tasks:
       ## behat END ##
       # initiate phpunit  
       ddev php public/admin/tool/phpunit/cli/init.php
+      # manually warmup index (since .gitpod phpstorm-prebuild key seems not working)
+      /ide-desktop/phpstorm-latest/backend/bin/remote-dev-server warm-up /workspace/moodle-by-php-drupal-ddev-2
     command: |
       yes| ddev start
       # PREBUILD problem - url at config.php will be the old prebuild workspace url, hence must append every time we start
